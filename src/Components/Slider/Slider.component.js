@@ -74,14 +74,14 @@ export class Slider extends PureComponent {
           <>
           <div style={{position: "relative", right: 0}}>
           {activeSlide !== images.length -1 && (
-<div style={{position: "absolute", top: "-100px", right: "-25%"}}     >       <SliderArrows
+<div style={{position: "absolute", top: "-40px", right: "-25%"}}     >       <SliderArrows
               direction={'right'}
               opacity={activeSlide !== images.length - 1 ? 1 : 0}
               handleClick={this.handlePrevSlide}
             /></div>
             )}
             {activeSlide > 0 && (
-              <div style={{position: "absolute", top: "-100px", left: "-5%"}}     >   
+              <div style={{position: "absolute", top: "-40px", right: "0"}}     >   
             <SliderArrows
               direction={'left'}
               opacity={activeSlide !== 0 ? 1 : 0}
