@@ -1,10 +1,16 @@
-.currency__details {
+.currency_list{
     display: flex;
     /* align-items: center; */
     align-items: center;
     justify-content: space-between;
     padding: 6px 0px;
+    border-style: none;
+    background-color: transparent;
+    color: black;
+}
 
+.currency_list option{
+    background-color: white  !important;
 }
 
 .symbol,
@@ -15,7 +21,11 @@
 }
 
 
-.currency__details:hover {
-    color: rgb(158, 61, 61);
+.currency_list:hover {
+    border-style: none    !important;
+}
+
+.currency__details {
     background-color: white !important;
 }
+

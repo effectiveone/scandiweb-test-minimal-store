@@ -7,17 +7,20 @@ export class CurrencySwitcher extends PureComponent {
     constructor(props) {
         super(props);  
       }
+
+
+      
   render() {
     const {
         onChangeCurrency, symbol, numberOfItems, totalPrice,
       } = this.props;
     return (
         <select
-        className="currency__details"
+        className="currency_list"
         style={{width: '100%'}}
         onChange={onChangeCurrency}
       >
-      <Query query={QueryCurrencies}>
+        <Query query={QueryCurrencies}>
         {({ loading, error, data }) => {
           if (loading) return null;
           if (error) return console.log(error);
@@ -26,15 +29,13 @@ export class CurrencySwitcher extends PureComponent {
           return data.currencies.map((item, index) => (
             <option 
             onChange={onChangeCurrency}
-
-                //  <option    onChange={() => {
-                //     this.props.onChangeCurrency(item.symbol);
-                    // window.location.reload(false);
-                //   }}   
+className="currency__details"
+style={{backgroundColor: "white" }}
                 key={index} value={item.symbol}>{item.symbol} {item.label}</option>     
           ));
         }}
       </Query>
+
       </select>
 
     );
