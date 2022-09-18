@@ -1,0 +1,27 @@
+import {
+    ADD_TO_CART,
+    INCREMENT_AN_ITEM,
+    DECREMENT_AN_ITEM,
+    REMOVE_FROM_CART
+  } from "./Cart.type.js";
+  
+export const addProductToCart = (id, attributes = []) => ({
+    type: ADD_TO_CART,
+    id,
+    attributes,
+  });
+  
+  export const removeProductFromCart = (cartId) => ({
+    type: REMOVE_FROM_CART,
+    cartId,
+  });
+  
+  export const incrementAnItem = (cartId) => ({
+    type: INCREMENT_AN_ITEM,
+    cartId,
+  });
+  
+  export const decrementAnItem = (cartId) => ({
+    type: DECREMENT_AN_ITEM,
+    cartId,
+  });
