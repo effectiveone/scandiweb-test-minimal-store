@@ -34,7 +34,7 @@ export default class AttributeCompare extends Component {
 
       </h4>
       <ul>
-      <li className="items-container-attributes">
+      <li className="items-container-attribute">
       {this.props.attributes?.items.map((item) => {
         const propsChecker =  this.props.selectedAttributes.find(p =>
           p.name === 'Color' ?
@@ -49,14 +49,14 @@ export default class AttributeCompare extends Component {
           <label
             htmlFor={item.id}
             key={item.id}
-            className="color-radio-btnss"
+            className="color-radio-btns"
 
             style={{ backgroundColor: `${item.value}`,
             }}
 
           >
             <input
-              className="color-radio-btns"
+              className="color-radio-btn"
              
               type="radio"
               id={item.id}
@@ -75,11 +75,11 @@ export default class AttributeCompare extends Component {
             <span />
           </label>
         ) : (
-          <label key={item.id} className="other-radio-btnss"
+          <label key={item.id} className="other-radio-btns"
         
         >
             <input
-              className="other-radio-btnss"
+              className="other-radio-btn"
              
               type="radio"
               id={item.name}

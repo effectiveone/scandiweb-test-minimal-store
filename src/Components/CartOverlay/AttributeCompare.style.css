@@ -1,35 +1,47 @@
-.items-container-attribute {
+.items-container-attributes{
     display: flex;
-    
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -30px
   }
-  
-  .color-radio-btns,
-  .other-radio-btns {
+  .items-container-attributes>label,
+  .items-container-attributes>input{
+    margin-left: -10px
+  }
+  .color-radio-btnss 
+{    width: 15px !important; 
+  height:  15px !important  }
+
+  .color-radio-btnss,
+  .other-radio-btnss {
+
     position: relative;
-    width: 13px; 
-    height:  15px; 
+    font-size: 10px;
+    width: 30px ;
+    height:  30px ;  
     border: 1px solid #1D1F22;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-right: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   
-  .color-radio-btns input,
-  .other-radio-btns input {
+  .color-radio-btnss input,
+  .other-radio-btnss input {
     display: none;
   }
   
-  .color-radio-btns .checkmark {
-    width: calc(100% - 38px);
-    height: calc(100% - 22px);
+  .color-radio-btnss .checkmark {
+    /* width: calc(100% - 38px);
+    height: calc(100% - 22px); */
     opacity: 0;
     transition: opacity 300ms ease-in;
     z-index: 20;
   }
   
-  .color-radio-btns span {
+  .color-radio-btnss span {
     content: "";
     position: absolute;
     right: -1px;
@@ -41,23 +53,23 @@
     opacity: 0;
     transition: opacity 200ms ease-in;
   }
-  .color-radio-btns input:checked + .checkmark {
+  .color-radio-btnss input:checked + .checkmark {
     display: inline-block;
     opacity: 1;
   }
   
-  .color-radio-btns input:checked ~ span {
+  .color-radio-btnss input:checked ~ span {
     opacity: 1;
   }
   
-  .other-radio-btns input:checked ~ .other-radio-btns {
+  .other-radio-btnss input:checked ~ .other-radio-btns {
     background-color: #000;
   }
   
   .other-checkmark {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 8px;
     line-height: 18px;
     z-index: 5;
   }
@@ -94,5 +106,5 @@
   
   .product-details-info-conatiner ul {
     padding: 0;
-    margin: 0.2em 0 2em 0;
+    /* margin: 0.2em 0 2em 0; */
   }

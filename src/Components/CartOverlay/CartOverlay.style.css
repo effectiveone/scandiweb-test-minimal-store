@@ -22,26 +22,30 @@
   right: 64px;
   top: 53px;
   background-color: #fff;
-  width: 425px;
+  width: 325px;
   z-index: 59;
   max-height: 79vh;
   overflow: auto;
 }
 
+
+
 .items-container {
   display: flex;
   flex-direction: column;
-  gap: 20px 0;
+  width: 200px;
+  /* gap: 20px 0; */
 }
 
 .item {
   position: relative;
   display: flex;
-  padding: 0.3em 1em;
+  padding: 0.1em 0.5em;
 }
 
 .mini-cart-title {
   margin: 0.4em;
+
 }
 
 .brand-name {
@@ -50,7 +54,7 @@
 
 
 .item-name {
-  margin: 0.5em 0.2em;
+  /* margin: 0.5em 0.2em; */
 }
 
 .brand-name,
@@ -107,8 +111,8 @@
 }
 
 .quantity-btn {
-  width: 24px;
-  height: 24px;
+  /* width: 24px;
+  height: 24px; */
   cursor: pointer;
   background-color: #fff;
 }
@@ -120,7 +124,11 @@
 }
 
 .item-picture {
-  width: 105px;
+  /* width: 105px; */
+  position: relative;
+  right: -100px;
+ display: flex;
+ justify-content: center;
   height: min-content;
   align-self: center;
 }
@@ -160,10 +168,14 @@
   padding: 0.8em;
   cursor: pointer;
 }
-
+.container-container{
+  margin-left: -2px;
+}
 .mini-delete-icon {
-  position: absolute;
-  right: 5px;
+  position: relative;
+  right: 40px;
+  height: 30px;
+  width: 30px;
   background-color: rgb(24, 24, 24);
   border-radius: 50%;
   cursor: pointer;

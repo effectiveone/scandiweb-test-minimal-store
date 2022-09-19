@@ -1,10 +1,11 @@
 /* .SliderElement {
 display: flex;
 flex-direction: column;
+justify-content: flex-start;
 height: auto;
 overflow: hidden;
-width: 100%;}
-
+width: 100%;} */
+/* 
  .SliderContent {
 transition: all ease-in-out 0.5s;
 height: 100%;

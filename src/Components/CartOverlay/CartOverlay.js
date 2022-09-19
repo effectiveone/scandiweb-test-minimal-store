@@ -11,7 +11,7 @@ import {
   changeAttributes
 } from '../../Redux/store/Cart/Cart.action';
 import delIcon from '../../Assets/delIcon.png';
-import Slider from '../Slider';
+// import Slider from '../Slider';
 import AttributeCompare from "./AttributeCompare"
 
 
@@ -60,7 +60,7 @@ class CartOverlay extends Component {
               {numberOfItems === 1 ? ' item' : ' items'}
             </strong>
           </h3>
-          <div className="items-container">
+          <div className="items-container  container-container">
             {cart.map((item) => (
               <article key={item.id} className="item">
                 <div className="item-info">
@@ -109,18 +109,21 @@ class CartOverlay extends Component {
                     -
                   </button>
                 </div>
-                <div className="item-picture">
-                 <Slider images={item.gallery} />
+                <div className="item-pictures">
+                 <img src={item.gallery[0]} style={{width:'150px', height: '250px'}}/>
             </div>               <button
                   className="mini-delete-icon"
                   type="button"
+                 
                   onClick={() => removeProductFromCart(item.cartId)}
                 >
                   <img src={delIcon} alt="delete icon" />
                 </button>
+             
+              
               </article>
             ))}
-          </div>
+         </div>
           <div className="total-container">
             <p className="mini-cart-total">Total</p>
             <p className="mini-cart-total-price">{totalPrice}</p>

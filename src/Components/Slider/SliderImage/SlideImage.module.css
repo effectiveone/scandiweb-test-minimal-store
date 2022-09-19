@@ -3,6 +3,7 @@
 }
 
 .ImageWrapper {
+  position: relative;
   width: 150px;
   height: 200px;
   object-fit: contain;

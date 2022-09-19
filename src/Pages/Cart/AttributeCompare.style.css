@@ -1,0 +1,106 @@
+.items-container-attribute {
+    display: flex;
+    
+  }
+  
+  .color-radio-btns{
+  width: 33px !important; 
+  height:  25px !important; }
+
+  .other-radio-btn {
+    width: 63px; 
+    height:  45px; }
+  
+  .color-radio-btns,
+  .other-radio-btns {
+    width: 63px; 
+    height:  45px;
+    position: relative;
+    border: 1px solid #1D1F22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+  
+  .color-radio-btns input,
+  .other-radio-btns input {
+    display: none;
+  }
+  
+  .color-radio-btns .checkmark {
+    width: calc(100% - 38px);
+    height: calc(100% - 22px);
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+    z-index: 20;
+  }
+  
+  .color-radio-btns span {
+    content: "";
+    position: absolute;
+    right: -1px;
+    left: -1px;
+    bottom: -1px;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+  }
+  .color-radio-btns input:checked + .checkmark {
+    display: inline-block;
+    opacity: 1;
+  }
+  
+  .color-radio-btns input:checked ~ span {
+    opacity: 1;
+  }
+  
+  .other-radio-btns input:checked ~ .other-radio-btns {
+    background-color: #000;
+  }
+  
+  .other-checkmark {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    z-index: 5;
+  }
+  
+  .other-checkmark::before {
+    content: "";
+    position: absolute;
+    right: -1px;
+    left: -1px;
+    bottom: -1px;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+    background-color: #000;
+  }
+  
+  .other-radio-btn:checked ~ .other-checkmark {
+    color: #fff;
+  }
+  
+  .other-radio-btn:checked ~ .other-checkmark::before {
+    opacity: 1;
+  }
+  
+  .product-details-info-conatiner h4 {
+    font-family: var(--roboto);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  .product-details-info-conatiner ul {
+    padding: 0;
+    margin: 0.2em 0 2em 0;
+  }

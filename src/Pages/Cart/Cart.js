@@ -4,7 +4,7 @@ import { decrementAnItem, incrementAnItem, changeAttributes, removeProductFromCa
 import './Cart.style.css';
 import delIcon from '../../Assets/delIcon.png';
 import Slider from "../../Components/Slider/";               
-import AttributeCompare from "../../Components/CartOverlay/AttributeCompare"
+import AttributeCompare from "./AttributeCompare"
 // import CartOverlay from '../../Components/CartOverlay/CartOverlay';
 
 
