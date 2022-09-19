@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import parse from 'html-react-parser';
 import { connect } from 'react-redux';
 import { addProductToCart } from '../../Redux/store/Cart/Cart.action';
-import Productattribute from './ProductAttribute/ProductAttribute';
+import Productattribute from './ProductAttribute';
 import './ProductDetails.style.css';
 
 class Productdetails extends Component {

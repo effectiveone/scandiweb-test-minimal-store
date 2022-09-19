@@ -1,17 +1,9 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import checked from '../../../Assets/checked.png';
 import './ProductAttribute.style.css';
 
-class Productattribute extends PureComponent {
-  constructor(props) {
-    super(props); 
-  }
 
-
-  render() {
-    const {attribute, handleAttributeOnChange } = this.props;
-  
-    return(
+const Productattribute = ({ attribute, handleAttributeOnChange }) => (
   <div>
     <h4>
       {attribute.name}
@@ -53,5 +45,5 @@ class Productattribute extends PureComponent {
       </li>
     </ul>
   </div>
-)}}
+);
 export default Productattribute;

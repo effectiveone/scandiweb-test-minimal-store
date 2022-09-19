@@ -3,16 +3,36 @@ import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import './CartOverlay.style.css';
+
 import {
   incrementAnItem,
   decrementAnItem,
   removeProductFromCart,
+  changeAttributes
 } from '../../Redux/store/Cart/Cart.action';
 import delIcon from '../../Assets/delIcon.png';
 import Slider from '../Slider';
+import AttributeCompare from "./AttributeCompare"
+
+
 
 
 class CartOverlay extends Component {
+ constructor(props) {
+  super(props);
+  this.state = {
+    attributes: [],
+    checker: new Set(),
+    isThereAttributes: false,
+  };
+
+
+ }
+
+
+
+
+
   render() {
     const {
       setIsOpen,
@@ -21,11 +41,14 @@ class CartOverlay extends Component {
       totalPrice,
       numberOfItems,
       incrementAnItem,
+      changeAttributes,
       decrementAnItem,
       removeProductFromCart,
     } = this.props;
 
-    console.log("cart", cart)
+
+
+
     return ReactDOM.createPortal(
       <>
         <section className="mini-cart">
@@ -53,26 +76,21 @@ class CartOverlay extends Component {
                     </div>
                     ),
                   )}
-                  <ul className="item-attributes-container">
-                    {item.attributes.map((attribute) => (
-                      <li key={attribute.value}>
-                        <h3>
-                          {attribute.name}
-                          :
-                        </h3>
-                        {attribute.name === 'Color' ? (
-                          <div
-                            className="mini-cart-color-attribute"
-                            style={{ backgroundColor: `${attribute.value}` }}
-                          />
-                        ) : (
-                          <span className="mini-cart-attribute">
-                            {attribute.value}
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
+                  
+                  {item.attributes.map((attribute, index) =>{
+           
+               return (
+                  <AttributeCompare
+                  cartOverlay={true}
+                     key={`${index}`}
+                     attributes={attribute}
+                     selectedAttributes={item.selectedAttributes}
+                     isCartPage={true}
+                     changeAttributes={changeAttributes}
+                     itemCardID={item.cardID}
+                  />
+               )}
+                  )}
                 </div>
                 <div className="qty-bts-container">
                   <button
@@ -91,15 +109,9 @@ class CartOverlay extends Component {
                     -
                   </button>
                 </div>
-                {/* <img
-                  className="item-picture"
-                  src={item.gallery[0]}
-                  alt={item.name}
-                /> */}
                 <div className="item-picture">
                  <Slider images={item.gallery} />
-            </div>
-                <button
+            </div>               <button
                   className="mini-delete-icon"
                   type="button"
                   onClick={() => removeProductFromCart(item.cartId)}
@@ -144,6 +156,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   incrementAnItem,
   decrementAnItem,
+  changeAttributes,
   removeProductFromCart,
 };
 

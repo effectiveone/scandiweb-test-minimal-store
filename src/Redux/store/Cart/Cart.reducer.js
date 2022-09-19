@@ -1,6 +1,7 @@
 import cache from '../../..';
 import {
   ADD_TO_CART,
+  CHANGE_ATTRIBUTES,
   INCREMENT_AN_ITEM,
   DECREMENT_AN_ITEM,
   REMOVE_FROM_CART
@@ -10,7 +11,6 @@ const initialState = {
   cart: [],
 };
 let num = 0;
-
 
 
 const cartReducer = (state = initialState, action) => {
@@ -43,7 +43,7 @@ const cartReducer = (state = initialState, action) => {
         if (mt === attributeChecker.size) {
           return {
             ...state,
-            cart: [
+            cart: [state.cart.attributes,
               ...state.cart.map((product) => {
                 if (cartId !== product.cartId) {
                   return product;
@@ -63,13 +63,46 @@ const cartReducer = (state = initialState, action) => {
           ...state.cart,
           {
             ...productData,
+            attributes: productData.attributes,
             quantity: 1,
-            attributes: action.attributes,
+            selectedAttributes: action.attributes,
             cartId: num++,
           },
         ],
       };
     }
+    case CHANGE_ATTRIBUTES: {
+      const { name, value } = action.payload;
+      return {
+        ...state,
+        dupaka:  value,
+        cart: [
+
+          ...state.cart.map((product) => {
+            // if (action.cartId !== product.cartId) {
+            //   return product;
+            // }
+
+            return {
+              ...product,
+       
+             
+            ...product.selectedAttributes.map(p =>{
+                
+                if(p.name === name && p.value !== value){ 
+                  p.value = value
+                 
+                 }
+                 
+                
+            })
+      
+       
+            
+            };
+          }),
+        ],
+      }};
     case INCREMENT_AN_ITEM:
       return {
         ...state,

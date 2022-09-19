@@ -10,6 +10,7 @@ const ProdctDescriptionPage = ({ productId, symbol }) => (
 
   <Query query={QueryProducts(productId)}>
     {({ data, loading }) => {
+      console.log("data", data)
       if (loading) return <Loading />;
       const { product } = data;
       return <Productdetails symbol={symbol} product={product} />;

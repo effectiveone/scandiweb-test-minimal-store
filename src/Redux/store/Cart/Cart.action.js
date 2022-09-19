@@ -1,5 +1,6 @@
 import {
     ADD_TO_CART,
+    CHANGE_ATTRIBUTES,
     INCREMENT_AN_ITEM,
     DECREMENT_AN_ITEM,
     REMOVE_FROM_CART
@@ -9,6 +10,12 @@ export const addProductToCart = (id, attributes = []) => ({
     type: ADD_TO_CART,
     id,
     attributes,
+  });
+
+  export const changeAttributes = (id, payload) => ({
+    type: CHANGE_ATTRIBUTES,
+    id,
+    payload 
   });
   
   export const removeProductFromCart = (cartId) => ({

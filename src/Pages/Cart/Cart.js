@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { decrementAnItem, incrementAnItem, removeProductFromCart } from '../../Redux/store/Cart/Cart.action';
+import { decrementAnItem, incrementAnItem, changeAttributes, removeProductFromCart } from '../../Redux/store/Cart/Cart.action';
 import './Cart.style.css';
 import delIcon from '../../Assets/delIcon.png';
 import Slider from "../../Components/Slider/";               
+import AttributeCompare from "../../Components/CartOverlay/AttributeCompare"
+// import CartOverlay from '../../Components/CartOverlay/CartOverlay';
 
 
 class Cart extends Component {
@@ -12,6 +14,7 @@ class Cart extends Component {
       cart,
       symbol,
       numberOfItems,
+      changeAttributes,
       totalPrice,
       totalVat,
       incrementAnItem,
@@ -38,8 +41,26 @@ class Cart extends Component {
                   </div>
                   ),
                 )}
-                <ul className="c-attributes-container">
-                  {item.attributes.map((attribute) => (
+
+{item.attributes.map((attribute, index) =>{
+           
+           return (
+              <AttributeCompare
+              cartOverlay={false}
+                 key={`${index}`}
+                 attributes={attribute}
+                 selectedAttributes={item.selectedAttributes}
+                 isCartPage={true}
+                 changeAttributes={changeAttributes}
+                 itemCardID={item.cardID}
+              />
+           )}
+              )}
+
+                {/* <ul className="c-attributes-container"> */}
+
+
+                  {/* {item.selectedAttributes.map((attribute) => (
                     <li key={attribute.id}>
                       <h4>
                         {attribute.name}
@@ -59,8 +80,8 @@ class Cart extends Component {
                         </div>
                       )}
                     </li>
-                  ))}
-                </ul>
+                  ))} */}
+                {/* </ul> */}
               </div>
               <div className="c-btns-and-img-con">
                 <div>
@@ -125,7 +146,9 @@ class Cart extends Component {
 const mapDispatchToProps = {
   incrementAnItem,
   decrementAnItem,
+  changeAttributes,
   removeProductFromCart,
+
 };
 
 export default connect(null, mapDispatchToProps)(Cart);
