@@ -2,11 +2,13 @@
   font-family: sans-serif;
   background: #f0f0f0;
   height: 100vh;
+
 }
 
 .DropDownContainer {
   width: 10.5em;
   margin: 0 auto;
+
 }
 
 .DropDownHeader {
@@ -15,6 +17,7 @@
     background: transparent;
     cursor: pointer;
     position: relative;
+
 }
 .NavCurrencyItem {
 display: flex;
@@ -24,23 +27,28 @@ font-size: 1.125rem;
 padding: 0.8rem 2rem;
 text-transform: uppercase;
 text-align: center;
-&:hover {
-    background-color: black;
-    color: white
-  }
+
+}
+.Grid{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .Attribute {
-    transform: translateX(-50px);
-    /* pointerEvents: "none"; */
+    transform: translateX(-20px);
+    pointer-events: none;
 
-    &:hover {
-        background-color: black;
-        color: white
-      }
+}
+.AttributeBis {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  padding-right: 5px;
 }
 
 .DropDownList {
+    transform: translateY(15px);
 
   list-style-type: none;
   background-color: white;
@@ -56,10 +64,9 @@ text-align: center;
 }
 
 .DropDownListContainer {
-    /* transform: translateX(-50px); */
   position: absolute;
   top: 5%;
   z-index: 100;
   width: 100px;
-
 }
+

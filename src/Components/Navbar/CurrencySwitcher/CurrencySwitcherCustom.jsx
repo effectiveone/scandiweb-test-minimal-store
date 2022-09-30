@@ -12,9 +12,17 @@ export class CurrencySwitcherCustom extends PureComponent {
 
       state = { isOpen: false,
     currentSymbol: "$",
-        currentValue: "USD"
+        currentValue: "USD",
+        hovered: "-1"
     }
  
+
+     MouseEnter = (index) => {
+      this.setState({hovered: index})
+    }
+     MouseLeave = () => {
+      this.setState({hovered: -1})
+    }
 
       toggling = () => {
         this.setState({ isOpen: !this.state.isOpen });
@@ -27,7 +35,7 @@ export class CurrencySwitcherCustom extends PureComponent {
       const isOpen = this.state.isOpen;
       const currentSymbol = this.state.currentSymbol;
       const currentValue = this.state.currentValue;
-
+      const hovered = this.state.hovered;
 
       
 
@@ -43,7 +51,7 @@ export class CurrencySwitcherCustom extends PureComponent {
 
 
     return (
-  <div className="DropDownContainer">
+  <div className="DropDownContainer" >
     <div className="DropDownHeader" onClick={this.toggling}>{currentSymbol}{currentValue}   {!isOpen ? <BiChevronDown /> : <BiChevronUp />}</div>
         <Query query={QueryCurrencies}>
         {({ loading, error, data }) => {
@@ -54,19 +62,26 @@ export class CurrencySwitcherCustom extends PureComponent {
           return (
 
             isOpen && (
-                <div className="DropDownListContainer">
-                <ul className="DropDownList">
+                <div className="DropDownListContainer" >
+                <div className="DropDownList">
                { data.currencies.map((item, index) => ( 
-                <li className="NavCurrencyItem"
+                <React.Fragment key={index}>
+                  
+                <li className="NavCurrencyItem" 
+                              style={hovered === index ? {backgroundColor: '#f0f0f0', color: "black"} : {color: "black"}}
+                              onMouseEnter={() => this.MouseEnter(index)} onMouseLeave={this.MouseLeave}
                 onClick={onOptionClicked(item)}
                 
-  key={index}>
-   <div className="Attribute" >{item.symbol}</div>  
-   <div className="Attribute">{item.label}</div>
-                </li>
+  >
+       <div className="Attribute" >{item.symbol}
+ </div>  
+   <div className="AttributeBis" >{item.label}
+ </div>  
+  {/* //  <div className="Attribute" ></div>  */}
+                </li></React.Fragment>
                
                 ))}
-                </ul>
+                </div>
                 </div>
 
            ) )
