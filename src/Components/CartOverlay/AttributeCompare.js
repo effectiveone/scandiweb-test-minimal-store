@@ -26,6 +26,8 @@ export default class AttributeCompare extends Component {
 
 
 
+
+
     return (
       <div>
       <h4>
@@ -57,7 +59,7 @@ export default class AttributeCompare extends Component {
 
           >
             <input
-              className="color-radio-btns"
+              className="color-radio-btnss"
               checked={ propsChecker }
              
               type="radio"
@@ -75,24 +77,23 @@ export default class AttributeCompare extends Component {
         ) : (
           <label key={item.id} className="other-radio-btnss"
         
-        >
-            <input
-              className="other-radio-btnss"
-             
-              type="radio"
-              id={item.name}
-            checked={ propsChecker }
-          
-              // checked={item.value === this.props.selectedAttributes[0].value}
-              name={item.name}
-              value={item.value}
-              onChange={() => changeAttributes(itemCardID, {
-                name: this.props.attributes?.name,
-                value:   item.value})
-                   }            />
-            <span className="other-checkmark">{item.value}</span>
-          </label>
-         )
+          >
+              <input
+                className="other-radio-btn"
+               
+                type="radio"
+                id={item.name}
+              checked={ propsChecker }
+            
+                // checked={item.value === this.props.selectedAttributes[0].value}
+                name={item.name}
+                value={item.value}
+                onChange={() => changeAttributes(itemCardID, {
+                  name: this.props.attributes?.name,
+                  value:   item.value})
+                     }            />
+              <span className="other-checkmark">{item.value}</span>
+            </label>)
         )}
         )}
       </li>

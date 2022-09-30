@@ -9,7 +9,7 @@ export default class AttributeCompare extends Component {
     const {  cartOverlay
     } = this.props
 
-    console.log("cartOverlay", cartOverlay)
+    console.log("Card", cartOverlay)
   }
 
   
