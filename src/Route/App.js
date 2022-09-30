@@ -53,9 +53,9 @@ class App extends Component {
   };
 
   handleOnChange = (event) => {
-    const { value } = event.target;
-    this.setState({ symbol: value });
-    localStorage.setItem('symbol', value);
+    const { symbol } = event;
+    this.setState({ symbol: symbol });
+    localStorage.setItem('symbol', symbol);
   };
 
   handleCurrencyOnLoad = () => {
