@@ -126,8 +126,7 @@
 .item-picture {
   /* width: 105px; */
   position: relative;
-  right: -100px;
- display: flex;
+
  justify-content: center;
   height: min-content;
   align-self: center;

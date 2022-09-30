@@ -21,12 +21,27 @@ class ProductItem extends Component {
   handleAddProductToCart = (id) => {
     const {
       addProductToCart,
-      product: { inStock },
+      product: { name, attributes, brand, gallery, description, prices },
     } = this.props;
-    if (!inStock) return true;
-    addProductToCart(id);
-    return true;
-  };
+    const selectedAttributes = attributes.map(({ id, name, items, value }) => {
+      return {
+         id,
+         name,
+         
+         value: items[0]?.id
+      };
+   });
+
+      addProductToCart(id, selectedAttributes);
+    }
+//       addProductToCart(id);}
+//       else{
+// const selectedAttributes = this.product.filter(z => z.id === id).attributes.filter(m=> m.items[0])
+//         addProductToCart(id, selectedAttributes);}
+//       }
+
+  
+
 
   render() {
     const {
@@ -66,16 +81,17 @@ class ProductItem extends Component {
           <button
             type="button"
             className="main-product-btn"
-            onClick={() => (!attributes.length
-              ? this.handleAddProductToCart(id)
-              : this.setState({ isOpen: true }))}
+            onClick={()=> (this.handleAddProductToCart(id))}
+            // onClick={() => (!attributes.length
+            //   ? this.handleAddProductToCart(id)
+            //   : this.setState({ isOpen: true }))}
           >
             <img src={whiteCartIcon} alt="cart" />
           </button>)}
         </article>
-        {isOpen && (
+        {/* {isOpen && (
           <Modal product={product} attributes={attributes} setIsOpen={this.setIsOpen} />
-        )}
+        )} */}
       </>
     );
   }

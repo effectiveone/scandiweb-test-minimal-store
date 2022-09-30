@@ -75,7 +75,6 @@ const cartReducer = (state = initialState, action) => {
       const { name, value } = action.payload;
       return {
         ...state,
-        dupaka:  value,
         cart: [
 
           ...state.cart.map((product) => {

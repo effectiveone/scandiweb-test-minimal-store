@@ -35,15 +35,16 @@ export default class AttributeCompare extends Component {
       </h4>
       <ul>
       <li className="items-container-attributes">
-      {this.props.attributes?.items.map((item) => {
-        const propsChecker =  this.props.selectedAttributes.find(p =>
-          p.name === 'Color' ?
-  (
-          p.name === this.props.attributes.name
-          &&  p.value === item.id ) : (
-          p.name === this.props.attributes.name
-          &&  p.value === item.value)
-          )
+      {this.props.attributes?.items.map((item, index) => {
+
+       const propsChecker =  this.props.selectedAttributes.find(p =>
+        p.name === 'Color' ?
+(
+        p.name === this.props.attributes.name
+        &&  p.value === item.id ) : (
+        p.name === this.props.attributes.name
+        &&  p.value === item.value)
+        )
         return (this.props.attributes?.name === 'Color' ? (
 
           <label
@@ -57,14 +58,11 @@ export default class AttributeCompare extends Component {
           >
             <input
               className="color-radio-btns"
+              checked={ propsChecker }
              
               type="radio"
               id={item.id}
-              style={{ backgroundColor: `${item.value}`,
-              
-            }}
-              checked={ propsChecker }
-             
+              style={{ backgroundColor: `${item.value}`}}
               name={item.value}
               value={item.id}
               onChange={() => changeAttributes(itemCardID, {   
@@ -93,7 +91,8 @@ export default class AttributeCompare extends Component {
                 value:   item.value})
                    }            />
             <span className="other-checkmark">{item.value}</span>
-          </label>)
+          </label>
+         )
         )}
         )}
       </li>
