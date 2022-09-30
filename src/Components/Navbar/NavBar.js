@@ -3,7 +3,7 @@ import cartIcon from '../../Assets/cartIcon.svg';
 import CartOverlay from '../CartOverlay/CartOverlay';
 import './NavBar.style.css';
 import Logo from './Logo';
-import CurrencySwitcher from "./CurrencySwitcher/CurrencySwitcher";
+import CurrencySwitcherCustom from "./CurrencySwitcher/CurrencySwitcherCustom";
 import CategorySwitcher from "./CategorySwitcher/CategorySwitcher";
 
 
@@ -37,7 +37,7 @@ class NavBar extends Component {
         </div>
         <div className="currencies-cart-and-container">
        
-<CurrencySwitcher onChangeCurrency={onChangeCurrency}
+<CurrencySwitcherCustom onChangeCurrency={onChangeCurrency}
 />
 
           <button
