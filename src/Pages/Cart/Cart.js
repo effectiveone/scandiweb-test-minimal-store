@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { decrementAnItem, incrementAnItem, changeAttributes, removeProductFromCart } from '../../Redux/store/Cart/Cart.action';
 import './Cart.style.css';
-import delIcon from '../../Assets/delIcon.png';
-import Slider from "../../Components/Slider/";               
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { IconContext } from "react-icons";import Slider from "../../Components/Slider/";               
 import AttributeCompare from "./AttributeCompare"
 // import CartOverlay from '../../Components/CartOverlay/CartOverlay';
 
@@ -110,11 +110,13 @@ class Cart extends Component {
                 type="button"
                 onClick={() => removeProductFromCart(item.cartId)}
               >
-                <img
-                  id="c-delete-icon"
-                  src={delIcon}
-                  alt="delete icon"
-                />
+            <IconContext.Provider value={{ color: "white", display: "flex",
+  justifyContent: "center",
+  alignItems: "center"}}>
+  <div>
+  <RiDeleteBin6Line size="1.5em"/>
+  </div>
+</IconContext.Provider>
               </button>
             </article>
           ))}

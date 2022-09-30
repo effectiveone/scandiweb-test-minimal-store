@@ -13,7 +13,9 @@ import {
 import delIcon from '../../Assets/delIcon.png';
 // import Slider from '../Slider';
 import AttributeCompare from "./AttributeCompare"
+import { RiDeleteBin6Line } from "react-icons/ri";
 
+import { IconContext } from "react-icons";
 
 
 
@@ -126,13 +128,20 @@ toggleVisibility() {
                       )}
                 >
                  <img src={item.gallery[0]} style={{width:'100px', height: '150px'}}/>
-                 {   !isOnHover && (   <button
+              {   !isOnHover && (   <button
                   className="mini-delete-icon"
+
                   type="button"
                  
                   onClick={() => removeProductFromCart(item.cartId)}
                 >
-                  <img src={delIcon} alt="delete icon" />
+
+<IconContext.Provider value={{ color: "white", className: "cardIcon"}}>
+  <div>
+  <RiDeleteBin6Line size="1.5em"/>
+  </div>
+</IconContext.Provider>
+           
                 </button>
                 )
              

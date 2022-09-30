@@ -1,5 +1,5 @@
 import React, { Component }from 'react';
-import checked from '../../../Assets/checked.png';
+import { BsCheck2Circle } from "react-icons/bs";
 import './ProductAttribute.style.css';
 
 
@@ -36,8 +36,10 @@ return (
               value={item.id}
               onChange={handleAttributeOnChange}
             />
-            <img src={checked} alt="checkmark" className="checkmark" />
-            <span />
+  <div className="checkmark">
+            <BsCheck2Circle size="1em" fill="rgb(255,255,255)"/>
+            </div>
+                        <span />
           </label>
         ) : (
           <label key={item.id} className="other-radio-btns">

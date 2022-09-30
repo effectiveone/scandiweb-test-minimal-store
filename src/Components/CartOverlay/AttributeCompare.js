@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import checked from '../../Assets/checked.png';
 import "./AttributeCompare.style.css"
-
+import { BsCheck2Circle } from "react-icons/bs";
 
 export default class AttributeCompare extends Component {
   constructor(props) {
@@ -32,7 +31,6 @@ export default class AttributeCompare extends Component {
       <div>
       <h4>
         {this.props.attributes.name}
-
 
       </h4>
       <ul>
@@ -71,7 +69,10 @@ export default class AttributeCompare extends Component {
                 name: this.props.attributes?.name,
              value:   item.value}) }
             />
-            <img src={checked} alt="checkmark" className="checkmark" />
+            <div className="checkmark">
+            <BsCheck2Circle size="12em" fill="rgb(255,255,255)"/>
+            </div>
+       
             <span />
           </label>
         ) : (
