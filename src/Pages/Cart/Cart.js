@@ -9,25 +9,48 @@ import AttributeCompare from "./AttributeCompare"
 
 
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+    const {
+     
+      cart,
+   
+    } = this.props;
+    this.state = {
+      attributes: [],
+      checker: new Set(),
+      isThereAttributes: false,
+      isOnHover: false,
+      CartMap: this.props.cart
+    };
+   }
+  
+  
+   componentWillReceiveProps(nextProps) {
+  console.log("nextPropsCart", nextProps.cart)
+    this.setState({ CartMap: nextProps.cart });
+  }
+
   render() {
     const {
-      cart,
-      symbol,
-      numberOfItems,
-      changeAttributes,
-      totalPrice,
+      setIsOpen,
       totalVat,
+      symbol,
+      totalPrice,
+      numberOfItems,
       incrementAnItem,
+      changeAttributes,
       decrementAnItem,
       removeProductFromCart,
     } = this.props;
+const CartMap = this.state.CartMap;
  
     return (
       <section className="main-cart-page">
         <h1>CART</h1>
         <div>
-          {cart?.map((item) => (
-            <article key={item.id} className="Cart-item">
+          {CartMap?.map((item) => (
+            <article key={item.id + Math.random()} className="Cart-item">
               <div>
                 <h4 className="c-brand-name">{item.brand}</h4>
                 <h5 className="c-item-name">{item.name}</h5>

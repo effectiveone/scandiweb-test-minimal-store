@@ -22,24 +22,30 @@ import { IconContext } from "react-icons";
 class CartOverlay extends Component {
  constructor(props) {
   super(props);
+  const {
+   
+    cart,
+ 
+  } = this.props;
   this.state = {
     attributes: [],
     checker: new Set(),
     isThereAttributes: false,
-    isOnHover: false
+    isOnHover: false,
+    CartMap: this.props.cart
   };
  }
 
 
-toggleVisibility() {
-
+ componentWillReceiveProps(nextProps) {
+console.log("nextPropsCart", nextProps.cart)
+  this.setState({ CartMap: nextProps.cart });
 }
-
 
   render() {
     const {
       setIsOpen,
-      cart,
+      
       symbol,
       totalPrice,
       numberOfItems,
@@ -48,7 +54,7 @@ toggleVisibility() {
       decrementAnItem,
       removeProductFromCart,
     } = this.props;
-
+const CartMap = this.state.CartMap;
     const  isOnHover = this.state.isOnHover;
 
 
@@ -66,9 +72,9 @@ toggleVisibility() {
             </strong>
           </h3>
           <div className="items-container  container-container">
-            {cart.map((item) => (
+            {CartMap.map((item, index) => (
 
-              <article key={item.id} className="item">
+              <article key={index + Math.random() } className="item">
 
                 <div className="item-info">
                   <h4 className="brand-name">{item.brand}</h4>
