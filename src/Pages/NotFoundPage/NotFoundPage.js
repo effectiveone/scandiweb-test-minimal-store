@@ -2,8 +2,11 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./NotFoundPage.style.css"
 
-class NotFoundPage extends Component  {
-  render() {
+
+
+    class NotFoundPage extends Component {
+      render() {
+    
     return (
       <div className="Container">
         <div className="Row">

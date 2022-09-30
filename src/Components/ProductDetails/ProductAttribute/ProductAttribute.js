@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { Component }from 'react';
 import checked from '../../../Assets/checked.png';
 import './ProductAttribute.style.css';
 
 
-const Productattribute = ({ attribute, handleAttributeOnChange }) => (
+
+class Productattribute extends Component {
+
+  render() {
+    const {
+      attribute, handleAttributeOnChange
+    } = this.props;
+
+return (
+
+
   <div>
     <h4>
       {attribute.name}
@@ -45,5 +55,5 @@ const Productattribute = ({ attribute, handleAttributeOnChange }) => (
       </li>
     </ul>
   </div>
-);
+)}}
 export default Productattribute;

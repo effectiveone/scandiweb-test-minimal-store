@@ -1,13 +1,19 @@
 import { Query } from '@apollo/client/react/components';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {Component} from 'react';
 import Loading from '../../Components/Loading/Loading';
 import Productdetails from '../../Components/ProductDetails/ProductDetails';
 import { QueryProducts} from '../../GraphQL/Query/QueryProducts';
 
 
-const ProdctDescriptionPage = ({ productId, symbol }) => (
 
+  class ProdctDescriptionPage extends Component {
+    render() {
+      const {
+        productId, symbol
+      } = this.props;
+
+return (
   <Query query={QueryProducts(productId)}>
     {({ data, loading }) => {
       console.log("data", data)
@@ -15,8 +21,9 @@ const ProdctDescriptionPage = ({ productId, symbol }) => (
       const { product } = data;
       return <Productdetails symbol={symbol} product={product} />;
     }}
-  </Query>
-);
+  </Query>)
+    }}
+  
 
 export default ProdctDescriptionPage;
 

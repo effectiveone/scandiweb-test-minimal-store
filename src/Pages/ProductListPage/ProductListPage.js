@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Query } from '@apollo/client/react/components';
 import ProductItem from '../../Components/ProductItem/ProductItem';
 import  QueryCategory  from '../../GraphQL/Query/QueryCategory';
@@ -6,7 +6,16 @@ import  QueryCategory  from '../../GraphQL/Query/QueryCategory';
 import './ProductListPage.style.css';
 import Loading from '../../Components/Loading/Loading';
 
-const ProductListPage = ({ symbol, category }) => (
+
+  class ProductListPage extends Component {
+    render() {
+      const {
+        symbol, category
+      } = this.props;
+
+return (
+
+
   <Query query={QueryCategory(category)}>
     {({ data, loading }) => {
       if (loading) return <Loading />;
@@ -23,6 +32,6 @@ const ProductListPage = ({ symbol, category }) => (
       );
     }}
   </Query>
-);
+)}}
 
 export default ProductListPage;
