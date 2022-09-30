@@ -8,6 +8,8 @@ import { isDOMComponent } from "react-dom/test-utils";
 export class CurrencySwitcherCustom extends PureComponent {
     constructor(props) {
         super(props);  
+        this.wrapperRef = React.createRef();
+        this.handleClickOutside = this.handleClickOutside.bind(this);
       }
 
       state = { isOpen: false,
@@ -16,6 +18,21 @@ export class CurrencySwitcherCustom extends PureComponent {
         hovered: "-1"
     }
  
+   
+  
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  /**
+   * Alert if clicked on outside of element
+   */
+
 
      MouseEnter = (index) => {
       this.setState({hovered: index})
@@ -27,6 +44,11 @@ export class CurrencySwitcherCustom extends PureComponent {
       toggling = () => {
         this.setState({ isOpen: !this.state.isOpen });
       };
+
+      handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
+          this.toggling()
+        }}
       
   render() {
     const {
@@ -51,8 +73,9 @@ export class CurrencySwitcherCustom extends PureComponent {
 
 
     return (
-  <div className="DropDownContainer" >
-    <div className="DropDownHeader" onClick={this.toggling}>{currentSymbol}{currentValue}   {!isOpen ? <BiChevronDown /> : <BiChevronUp />}</div>
+  <div className="DropDownContainer" ref={this.wrapperRef}>
+    <div className="DropDownHeader" onClick={this.toggling}>{currentSymbol}{"   "}
+    {currentValue}   {!isOpen ? <BiChevronDown /> : <BiChevronUp />}</div>
         <Query query={QueryCurrencies}>
         {({ loading, error, data }) => {
           if (loading) return null;
@@ -73,10 +96,11 @@ export class CurrencySwitcherCustom extends PureComponent {
                 onClick={onOptionClicked(item)}
                 
   >
+    <div className="Grid">
        <div className="Attribute" >{item.symbol}
  </div>  
    <div className="AttributeBis" >{item.label}
- </div>  
+ </div>  </div>
   {/* //  <div className="Attribute" ></div>  */}
                 </li></React.Fragment>
                

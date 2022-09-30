@@ -42,7 +42,9 @@ text-align: center;
 }
 .AttributeBis {
   position: absolute;
-  right: 10px;
+  transform: translateX(20px);
+
+ /* right: -30px; */
   pointer-events: none;
   padding-right: 5px;
 }
