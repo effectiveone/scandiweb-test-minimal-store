@@ -24,13 +24,14 @@ class CartOverlay extends Component {
     attributes: [],
     checker: new Set(),
     isThereAttributes: false,
+    isOnHover: false
   };
-
-
  }
 
 
+toggleVisibility() {
 
+}
 
 
   render() {
@@ -45,6 +46,8 @@ class CartOverlay extends Component {
       decrementAnItem,
       removeProductFromCart,
     } = this.props;
+
+    const  isOnHover = this.state.isOnHover;
 
 
 
@@ -62,7 +65,9 @@ class CartOverlay extends Component {
           </h3>
           <div className="items-container  container-container">
             {cart.map((item) => (
+
               <article key={item.id} className="item">
+
                 <div className="item-info">
                   <h4 className="brand-name">{item.brand}</h4>
                   <h5 className="item-name">{item.name}</h5>
@@ -92,6 +97,8 @@ class CartOverlay extends Component {
                )}
                   )}
                 </div>
+                
+                
                 <div className="qty-bts-container">
                   <button
                     className="quantity-btn"
@@ -108,10 +115,18 @@ class CartOverlay extends Component {
                   >
                     -
                   </button>
+                
                 </div>
-                <div className="item-pictures">
-                 <img src={item.gallery[0]} style={{width:'150px', height: '250px'}}/>
-            </div>               <button
+                
+               
+                <div className="item-pictures"
+                    onMouseEnter={() => (this.setState({ isOnHover: false })
+                      )}
+                      onMouseLeave={() => (this.setState({ isOnHover: true })
+                      )}
+                >
+                 <img src={item.gallery[0]} style={{width:'100px', height: '150px'}}/>
+                 {   !isOnHover && (   <button
                   className="mini-delete-icon"
                   type="button"
                  
@@ -119,8 +134,11 @@ class CartOverlay extends Component {
                 >
                   <img src={delIcon} alt="delete icon" />
                 </button>
+                )
              
-              
+            }
+            </div>         
+         
               </article>
             ))}
          </div>

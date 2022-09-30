@@ -8,6 +8,12 @@
   z-index: 30;
 }
 
+.item-pictures{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transform: translateX(30px);
+}
 .ProductCartImage{
   width: 100%;
   height: 100%;
@@ -18,11 +24,13 @@
 .mini-cart {
   display: flex;
   flex-direction: column;
+
+  margin-bottom: 6rem;
   position: absolute;
   right: 64px;
   top: 53px;
   background-color: #fff;
-  width: 325px;
+  width: 350px;
   z-index: 59;
   max-height: 79vh;
   overflow: auto;
@@ -31,16 +39,19 @@
 
 
 .items-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr  ;
+  /* display: flex;
+  flex-direction: column; */
   width: 200px;
   /* gap: 20px 0; */
 }
 
 .item {
   position: relative;
-  display: flex;
-  padding: 0.1em 0.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.1em 0.5em;
 }
 
 .mini-cart-title {
@@ -90,9 +101,10 @@
 }
 
 .mini-cart-attribute {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  background-color: red;
   padding: 0 0.3em;
   width: max-content;
   height: 24px;
@@ -101,18 +113,25 @@
 
 .qty-bts-container {
   display: flex;
+  flex: 1 1 auto;
+  /* align-items: flex-end; */
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 10px;
+  /* margin: 0 10px; */
+transform: translateX(100%);
+/* padding-right: 40px; */
 }
 
 .qty-bts-container p {
   text-align: center;
+  
+
 }
 
+
 .quantity-btn {
-  /* width: 24px;
-  height: 24px; */
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   background-color: #fff;
 }
@@ -171,14 +190,21 @@
   margin-left: -2px;
 }
 .mini-delete-icon {
-  position: relative;
+  position: absolute;
+/* display: flex;
+justify-content: flex-end;
+align-items: flex-end; */
   right: 40px;
   height: 30px;
   width: 30px;
   background-color: rgb(24, 24, 24);
   border-radius: 50%;
   cursor: pointer;
-  display: none;
+  /* display: block;
+  &:hover {
+    display: block;
+
+  } */
 }
 
 .mini-delete-icon img {
@@ -186,9 +212,9 @@
   height: 20px;
 }
 
-.item:hover  .mini-delete-icon {
+/* .item:hover  .mini-delete-icon {
   display: block;
-}
+} */
 
 .view-bag-btn {
   font-family: 'Raleway';
