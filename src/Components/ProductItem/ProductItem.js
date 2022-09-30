@@ -21,9 +21,9 @@ class ProductItem extends Component {
   handleAddProductToCart = (id) => {
     const {
       addProductToCart,
-      product: { name, attributes, brand, gallery, description, prices },
+      product: { name, attributes },
     } = this.props;
-    const selectedAttributes = attributes.map(({ id, name, items, value }) => {
+    const selectedAttributes = attributes.map(({ id, name, items }) => {
       return {
          id,
          name,

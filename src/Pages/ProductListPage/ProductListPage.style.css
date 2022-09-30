@@ -10,9 +10,12 @@
 }
 
 .products-container {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3.2em 1.7em;
+  gap: 3.2em 1.7em; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
   margin-bottom: 6rem;
 }
