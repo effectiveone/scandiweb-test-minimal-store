@@ -49,22 +49,19 @@ export default class AttributeCompare extends Component {
           <label
             htmlFor={item.id}
             key={item.id}
-            className="color-radio-btns"
+            className="color-radio-btnss"
 
             style={{ backgroundColor: `${item.value}`,
             }}
 
           >
             <input
-              className="color-radio-btn"
+              className="color-radio-btnss"
+              checked={ propsChecker }
              
               type="radio"
               id={item.id}
-              style={{ backgroundColor: `${item.value}`,
-              
-            }}
-              checked={ propsChecker }
-             
+              style={{ backgroundColor: `${item.value}`}}
               name={item.value}
               value={item.id}
               onChange={() => changeAttributes(itemCardID, {   
