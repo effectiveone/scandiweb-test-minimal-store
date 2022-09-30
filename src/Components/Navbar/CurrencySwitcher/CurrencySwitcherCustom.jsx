@@ -47,7 +47,7 @@ export class CurrencySwitcherCustom extends PureComponent {
 
       handleClickOutside(event) {
         if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
-          this.toggling()
+          this.setState({ isOpen: false });
         }}
       
   render() {
