@@ -38,10 +38,10 @@ export default class AttributeCompare extends Component {
         const propsChecker =  this.props.selectedAttributes.find(p =>
           p.name === 'Color' ?
   (
-          p.name === this.props.attributes.name
-          &&  p.value === item.id ) : (
-          p.name === this.props.attributes.name
-          &&  p.value === item.id )
+    p.name === this.props.attributes.name
+    &&  p.value === item.id  ||  p.value === item.value) : (
+    p.name === this.props.attributes.name
+    &&  p.id === item.value || p.value === item.id )
           )
         return (this.props.attributes?.name === 'Color' ? (
 

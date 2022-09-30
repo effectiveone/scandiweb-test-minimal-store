@@ -90,10 +90,9 @@ const cartReducer = (state = initialState, action) => {
                 
                 if(p.name === name && p.value !== value){ 
                   p.value = value
-                 
+                 p.id = value
                  }
-                 
-                
+
             })
       
        
