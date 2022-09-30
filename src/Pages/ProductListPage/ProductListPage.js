@@ -5,6 +5,7 @@ import  QueryCategory  from '../../GraphQL/Query/QueryCategory';
 
 import './ProductListPage.style.css';
 import Loading from '../../Components/Loading/Loading';
+import uuid from 'react-uuid';
 
 
   class ProductListPage extends Component {
@@ -25,7 +26,7 @@ return (
           <h1 className="category-title">{name}</h1>
           <div className="products-container">
             {products.map((product) => (
-              <ProductItem key={product.id} symbol={symbol} product={product} />
+              <ProductItem key={uuid()} symbol={symbol} product={product} />
             ))}
           </div>
         </section>

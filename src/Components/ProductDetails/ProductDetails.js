@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addProductToCart } from '../../Redux/store/Cart/Cart.action';
 import Productattribute from './ProductAttribute';
 import './ProductDetails.style.css';
+import uuid from 'react-uuid';
 
 class Productdetails extends Component {
   constructor(props) {
@@ -87,7 +88,7 @@ class Productdetails extends Component {
         <div className="product-img-conatiner">
           {gallery.map((picture) => (
             <img
-              key={picture}
+              key={uuid()}
               src={picture}
               onClick={(e) => this.displayImageOnclick(e)}
               alt="product"
@@ -107,7 +108,7 @@ class Productdetails extends Component {
             {isThereAttributes && (
               <ul>
                 {this.attributesNeeded().map((item) => (
-                  <li key={item.id}>
+                  <li key={uuid()}>
                     <strong>
                       {item.name}
                       {' '}
@@ -120,14 +121,14 @@ class Productdetails extends Component {
             {attributes.map((attribute) => (
               <Productattribute
                 handleAttributeOnChange={this.handleAttributeOnChange}
-                key={attribute.id}
+                key={uuid()}
                 attribute={attribute}
               />
             ))}
           </div>
           {prices.map(
             (price) => price.currency.symbol === symbol && (
-            <div key={price.currency.symbol}>
+            <div key={uuid()}>
               <h4>Price:</h4>
               <h5>
                 {price.currency.symbol}

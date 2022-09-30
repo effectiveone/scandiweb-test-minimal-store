@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { addProductToCart } from '../../../Redux/store/Cart/Cart.action';
 import ProductAttribute from '../../../Components/ProductDetails/ProductAttribute/ProductAttribute';
 import './Modal.style.css';
+import uuid from 'react-uuid';
+
 
 class Modal extends Component {
   constructor(props) {
@@ -69,7 +71,7 @@ class Modal extends Component {
           {isThereAttributes && (
             <ul>
               {this.attributesNeeded().map((item) => (
-                <li key={item.id}>
+                <li key={uuid()}>
                   <strong style={{ color: 'red' }}>
                     {item.name}
                     {' '}
@@ -82,7 +84,7 @@ class Modal extends Component {
           <h2>{name}</h2>
           {attributes?.map((attribute) => (
             <ProductAttribute
-              key={attribute.id}
+              key={uuid()}
               attribute={attribute}
               handleAttributeOnChange={this.handleAttributeOnChange}
             />

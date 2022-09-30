@@ -5,6 +5,8 @@ import { addProductToCart } from '../../Redux/store/Cart/Cart.action';
 import whiteCartIcon from '../../Assets/whiteCartIcon.svg';
 import './ProductItem.style.css';
 import Modal from '../Modal/Modal';
+import uuid from 'react-uuid';
+
 
 class ProductItem extends Component {
   constructor(props) {
@@ -54,7 +56,7 @@ class ProductItem extends Component {
     const { isOpen } = this.state;
     return (
       <>
-        <article className="product-item" key={id}>
+        <article className="product-item" key={uuid()}>
           {!inStock && <span className="out-of-stock">OUT OF STOCK</span>}
           <div
             className={
@@ -70,7 +72,7 @@ class ProductItem extends Component {
             </Link>
             {prices.map(
               (price) => price.currency.symbol === symbol && (
-              <strong key={price.currency.symbol}>
+              <strong key={uuid()}>
                 {price.currency.symbol}
                 {price.amount}
               </strong>

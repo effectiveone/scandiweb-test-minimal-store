@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BsCheck2Circle } from "react-icons/bs";
 import "./AttributeCompare.style.css"
+import uuid from 'react-uuid';
 
 
 export default class AttributeCompare extends Component {
@@ -47,7 +48,7 @@ export default class AttributeCompare extends Component {
 
           <label
             htmlFor={item.id}
-            key={item.id}
+            key={uuid()}
             className="color-radio-btnss"
 
             style={{ backgroundColor: `${item.value}`,
@@ -73,7 +74,7 @@ export default class AttributeCompare extends Component {
             <span />
           </label>
         ) : (
-          <label key={item.id} className="other-radio-btns"
+          <label key={uuid()} className="other-radio-btns"
         
         >
             <input

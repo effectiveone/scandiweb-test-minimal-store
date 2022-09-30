@@ -6,6 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { IconContext } from "react-icons";import Slider from "../../Components/Slider/";               
 import AttributeCompare from "./AttributeCompare"
 // import CartOverlay from '../../Components/CartOverlay/CartOverlay';
+import uuid from 'react-uuid';
 
 
 class Cart extends Component {
@@ -50,13 +51,13 @@ const CartMap = this.state.CartMap;
         <h1>CART</h1>
         <div>
           {CartMap?.map((item) => (
-            <article key={item.id + Math.random()} className="Cart-item">
+            <article key={uuid()} className="Cart-item">
               <div>
                 <h4 className="c-brand-name">{item.brand}</h4>
                 <h5 className="c-item-name">{item.name}</h5>
                 {item.prices.map(
                   (price) => price.currency.symbol === symbol && (
-                  <div key={price.currency.symbol}>
+                  <div key={uuid()}>
                     <p className="c-price">
                       {price.currency.symbol}
                       {price.amount}
@@ -70,7 +71,7 @@ const CartMap = this.state.CartMap;
            return (
               <AttributeCompare
               cartOverlay={false}
-                 key={`${index}`}
+                 key={uuid()}
                  attributes={attribute}
                  selectedAttributes={item.selectedAttributes}
                  isCartPage={true}

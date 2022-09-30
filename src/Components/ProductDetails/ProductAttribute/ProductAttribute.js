@@ -1,7 +1,7 @@
 import React, { Component }from 'react';
 import { BsCheck2Circle } from "react-icons/bs";
 import './ProductAttribute.style.css';
-
+import uuid from 'react-uuid';
 
 
 class Productattribute extends Component {
@@ -24,7 +24,7 @@ return (
         {attribute?.items.map((item) => (attribute.name === 'Color' ? (
           <label
             htmlFor={item.id}
-            key={item.id}
+            key={uuid()}
             style={{ backgroundColor: `${item.value}` }}
             className="color-radio-btns"
           >
@@ -42,7 +42,7 @@ return (
                         <span />
           </label>
         ) : (
-          <label key={item.id} className="other-radio-btns">
+          <label key={uuid()} className="other-radio-btns">
             <input
               className="other-radio-btn"
               type="radio"
