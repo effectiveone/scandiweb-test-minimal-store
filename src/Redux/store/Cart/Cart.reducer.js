@@ -72,15 +72,15 @@ const cartReducer = (state = initialState, action) => {
       };
     }
     case CHANGE_ATTRIBUTES: {
-      const { name, value } = action.payload;
+      const { name, value, cartId } = action.payload;
       return {
         ...state,
         cart: [
 
           ...state.cart.map((product) => {
-            // if (action.cartId !== product.cartId) {
-            //   return product;
-            // }
+            if (action.cartId !== product.cartId) {
+              return product;
+            }
 
             return {
               ...product,

@@ -8,7 +8,6 @@ export default class AttributeCompare extends Component {
     const {  cartOverlay
     } = this.props
 
-    console.log("cartOverlay", cartOverlay)
   }
 
   
@@ -67,7 +66,7 @@ export default class AttributeCompare extends Component {
               style={{ backgroundColor: `${item.value}`}}
               name={item.value}
               value={item.id}
-              onChange={() => changeAttributes(itemCardID, {   
+              onChange={() => changeAttributes(this.props.itemCardID, {   
                 name: this.props.attributes?.name,
              value:   item.value}) }
             />
@@ -91,9 +90,9 @@ export default class AttributeCompare extends Component {
                 // checked={item.value === this.props.selectedAttributes[0].value}
                 name={item.name}
                 value={item.value}
-                onChange={() => changeAttributes(itemCardID, {
+                onChange={() => changeAttributes(item.id, {
                   name: this.props.attributes?.name,
-                  value:   item.value})
+                  value:   item.value}, itemCardID)
                      }            />
               <span className="other-checkmark">{item.value}</span>
             </label>)

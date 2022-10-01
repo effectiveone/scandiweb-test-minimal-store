@@ -38,7 +38,6 @@ class CartOverlay extends Component {
 
 
  componentWillReceiveProps(nextProps) {
-console.log("nextPropsCart", nextProps.cart)
   this.setState({ CartMap: nextProps.cart });
 }
 
@@ -100,7 +99,7 @@ const CartMap = this.state.CartMap;
                      selectedAttributes={item.selectedAttributes}
                      isCartPage={true}
                      changeAttributes={changeAttributes}
-                     itemCardID={item.cardID}
+                     itemCardID={item.cartId}
                   />
                )}
                   )}

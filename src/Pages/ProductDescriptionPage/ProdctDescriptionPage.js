@@ -16,7 +16,6 @@ import { QueryProducts} from '../../GraphQL/Query/QueryProducts';
 return (
   <Query query={QueryProducts(productId)}>
     {({ data, loading }) => {
-      console.log("data", data)
       if (loading) return <Loading />;
       const { product } = data;
       return <Productdetails symbol={symbol} product={product} />;

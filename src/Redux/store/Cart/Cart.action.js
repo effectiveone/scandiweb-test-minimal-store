@@ -12,10 +12,12 @@ export const addProductToCart = (id, attributes = []) => ({
     attributes,
   });
 
-  export const changeAttributes = (id, payload) => ({
+  export const changeAttributes = (id, payload, cartId) => ({
     type: CHANGE_ATTRIBUTES,
     id,
-    payload 
+    payload, 
+    cartId,
+
   });
   
   export const removeProductFromCart = (cartId) => ({

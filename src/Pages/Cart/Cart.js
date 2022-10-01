@@ -8,7 +8,6 @@ import AttributeCompare from "./AttributeCompare"
 // import CartOverlay from '../../Components/CartOverlay/CartOverlay';
 import uuid from 'react-uuid';
 
-
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,6 @@ class Cart extends Component {
   
   
    componentWillReceiveProps(nextProps) {
-  console.log("nextPropsCart", nextProps.cart)
     this.setState({ CartMap: nextProps.cart });
   }
 
