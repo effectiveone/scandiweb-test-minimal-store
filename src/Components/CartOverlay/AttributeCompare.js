@@ -19,6 +19,7 @@ export default class AttributeCompare extends Component {
        selectAttribute = () => {},
        isCartPage = false,
        itemCardID,
+       productName,
        changeAttributes
     } = this.props;
 
@@ -88,7 +89,7 @@ export default class AttributeCompare extends Component {
                 // checked={item.value === this.props.selectedAttributes[0].value}
                 name={item.name}
                 value={item.value}
-                onChange={() => changeAttributes(item.id, {
+                onChange={() => changeAttributes(productName, {
                   name: this.props.attributes?.name,
                   value:   item.value}, itemCardID)
                      }            />

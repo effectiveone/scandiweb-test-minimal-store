@@ -72,13 +72,17 @@ const cartReducer = (state = initialState, action) => {
       };
     }
     case CHANGE_ATTRIBUTES: {
-      const { name, value, cartId } = action.payload;
+      const { name, value } = action.payload;
       return {
         ...state,
         cart: [
 
           ...state.cart.map((product) => {
-            if (name !== "Color" && action.cartId !== product.cartId) {
+            if (action.id !== product.name) {
+              return product;
+            }
+
+            if (name == "Color" && action.cartId !== product.cartId) {
               return product;
             }
 
@@ -87,6 +91,13 @@ const cartReducer = (state = initialState, action) => {
        
              
             ...product.selectedAttributes.map(p =>{
+              
+              if (p.name.replace(/\s/g, '') !== name.replace(/\s/g, '') ) {
+                return p;
+              }
+
+              
+
                 
                 if(p.name === name && p.value !== value){ 
                   p.value = value
