@@ -78,7 +78,7 @@ const cartReducer = (state = initialState, action) => {
         cart: [
 
           ...state.cart.map((product) => {
-            if (action.cartId !== product.cartId) {
+            if (name !== "Color" && action.cartId !== product.cartId) {
               return product;
             }
 

@@ -40,7 +40,7 @@ export default class AttributeCompare extends Component {
           p.name === 'Color' ?
   (
     p.name === this.props.attributes.name
-    &&  p.value === item.id  ||  p.value === item.value) : (
+    &&  p.value === item.id  ||  p.value === item.value ) : (
     p.name === this.props.attributes.name
     &&  p.id === item.value || p.value === item.id )
           )
