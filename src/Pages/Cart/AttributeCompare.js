@@ -21,6 +21,7 @@ export default class AttributeCompare extends Component {
        selectAttribute = () => {},
        isCartPage = false,
        itemCardID,
+       productName,
        changeAttributes
     } = this.props;
 
@@ -64,9 +65,9 @@ export default class AttributeCompare extends Component {
               style={{ backgroundColor: `${item.value}`}}
               name={item.value}
               value={item.id}
-              onChange={() => changeAttributes(itemCardID, {   
+              onChange={() => changeAttributes(productName, {
                 name: this.props.attributes?.name,
-             value:   item.value}) }
+                value:   item.value}, itemCardID)}
             />
                  <div className="checkmark">
             <BsCheck2Circle size="12em" fill="rgb(255,255,255)"/>
@@ -87,9 +88,9 @@ export default class AttributeCompare extends Component {
               // checked={item.value === this.props.selectedAttributes[0].value}
               name={item.name}
               value={item.value}
-              onChange={() => changeAttributes(itemCardID, {
+              onChange={() => changeAttributes(productName, {
                 name: this.props.attributes?.name,
-                value:   item.value})
+                value:   item.value}, itemCardID)
                    }            />
             <span className="other-checkmark">{item.value}</span>
           </label>)

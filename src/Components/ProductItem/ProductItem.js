@@ -7,7 +7,6 @@ import './ProductItem.style.css';
 import Modal from '../Modal/Modal';
 import uuid from 'react-uuid';
 
-
 class ProductItem extends Component {
   constructor(props) {
     super(props);

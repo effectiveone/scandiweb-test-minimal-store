@@ -6,7 +6,6 @@ import ProductAttribute from '../../../Components/ProductDetails/ProductAttribut
 import './Modal.style.css';
 import uuid from 'react-uuid';
 
-
 class Modal extends Component {
   constructor(props) {
     super(props);

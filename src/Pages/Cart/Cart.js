@@ -73,8 +73,9 @@ const CartMap = this.state.CartMap;
                  attributes={attribute}
                  selectedAttributes={item.selectedAttributes}
                  isCartPage={true}
+                 productName={item.name}
                  changeAttributes={changeAttributes}
-                 itemCardID={item.cardID}
+                 itemCardID={item.cartId}
               />
            )}
               )}

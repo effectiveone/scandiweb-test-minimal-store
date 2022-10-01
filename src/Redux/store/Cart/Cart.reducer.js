@@ -78,13 +78,15 @@ const cartReducer = (state = initialState, action) => {
         cart: [
 
           ...state.cart.map((product) => {
-            if (action.id !== product.name) {
+            // if (action.id !== product.name) {
+            //   return product;
+            // }
+
+            if ( action.cartId !== product.cartId) {
               return product;
             }
 
-            if (name == "Color" && action.cartId !== product.cartId) {
-              return product;
-            }
+           
 
             return {
               ...product,
@@ -92,12 +94,13 @@ const cartReducer = (state = initialState, action) => {
              
             ...product.selectedAttributes.map(p =>{
               
-              if (p.name.replace(/\s/g, '') !== name.replace(/\s/g, '') ) {
+              if (p.name !== name ) {
                 return p;
               }
 
-              
-
+              if (p.name == "Color" && p.name === name && p.value !== value){
+                p.value = value
+              }
                 
                 if(p.name === name && p.value !== value){ 
                   p.value = value
