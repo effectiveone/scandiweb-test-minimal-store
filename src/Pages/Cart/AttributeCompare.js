@@ -37,14 +37,19 @@ export default class AttributeCompare extends Component {
       <ul>
       <li className="items-container-attribute">
       {this.props.attributes?.items.map((item) => {
-        const propsChecker =  this.props.selectedAttributes.find(p =>
-          p.name === 'Color' ?
-  (
-    p.name === this.props.attributes.name
-    &&  p.value === item.id  ||  p.value === item.value ) : (
-    p.name === this.props.attributes.name
-    &&  p.id === item.value || p.value === item.id )
-          )
+
+const propsChecker =  this.props.selectedAttributes.find(p =>{
+  if(p.name !== this.props.attributes.name ) {return} 
+       return(
+         
+
+       p.name === 'Color' ?
+(
+       p.name === this.props.attributes.name
+       &&  p.value === item.id  ||  p.value === item.value) : (
+       p.name === this.props.attributes.name
+       &&  p.id === item.value || p.value === item.id )
+      )})
         return (this.props.attributes?.name === 'Color' ? (
 
           <label

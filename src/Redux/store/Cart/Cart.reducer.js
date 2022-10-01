@@ -93,8 +93,10 @@ const cartReducer = (state = initialState, action) => {
        
              
             ...product.selectedAttributes.map(p =>{
-              
-              if (p.name !== name ) {
+            
+              if (p.name.replace(/ /g, '')
+ !== name.replace(/ /g, '')
+ ) {
                 return p;
               }
 
@@ -105,6 +107,10 @@ const cartReducer = (state = initialState, action) => {
                 if(p.name === name && p.value !== value){ 
                   p.value = value
                  p.id = value
+                 }
+               
+                 return {
+                  ...p
                  }
 
             })

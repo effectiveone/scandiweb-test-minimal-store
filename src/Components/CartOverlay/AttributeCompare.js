@@ -37,7 +37,10 @@ export default class AttributeCompare extends Component {
       {this.props.attributes?.items.map((item, index) => {
 
        const propsChecker =  this.props.selectedAttributes.find(p =>{
+   if(p.name !== this.props.attributes.name ) {return} 
         return(
+          
+
         p.name === 'Color' ?
 (
         p.name === this.props.attributes.name
