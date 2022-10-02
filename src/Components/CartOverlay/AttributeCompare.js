@@ -37,6 +37,7 @@ export default class AttributeCompare extends Component {
       {this.props.attributes?.items.map((item, index) => {
 
        const propsChecker =  this.props.selectedAttributes.find(p =>{
+
    if(p.name !== this.props.attributes.name ) {return} 
         return(
           
@@ -51,8 +52,8 @@ export default class AttributeCompare extends Component {
         return (this.props.attributes?.name === 'Color' ? (
 
           <label
-            htmlFor={item.id}
-            key={item.id}
+            // htmlFor={item.id}
+            key={index}
             className="color-radio-btnss"
 
             style={{ backgroundColor: `${item.value}`,
@@ -68,6 +69,7 @@ export default class AttributeCompare extends Component {
               style={{ backgroundColor: `${item.value}`}}
               name={item.value}
               value={item.id}
+
               onChange={() => changeAttributes(productName, {
                 name: this.props.attributes?.name,
                 value:   item.value}, itemCardID)
@@ -93,6 +95,7 @@ export default class AttributeCompare extends Component {
                 // checked={item.value === this.props.selectedAttributes[0].value}
                 name={item.name}
                 value={item.value}
+
                 onChange={() => changeAttributes(productName, {
                   name: this.props.attributes?.name,
                   value:   item.value}, itemCardID)

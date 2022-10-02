@@ -53,7 +53,7 @@ const propsChecker =  this.props.selectedAttributes.find(p =>{
         return (this.props.attributes?.name === 'Color' ? (
 
           <label
-            htmlFor={item.id}
+            // htmlFor={item.id}
             key={uuid()}
             className="color-radio-btnss"
 
