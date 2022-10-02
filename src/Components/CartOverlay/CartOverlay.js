@@ -101,6 +101,7 @@ const CartMap = this.state.CartMap;
                      productName={item.name}
                      changeAttributes={changeAttributes}
                      itemCardID={item.cartId}
+                     CartMap={CartMap}
                   />
                )}
                   )}

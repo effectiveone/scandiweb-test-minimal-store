@@ -59,7 +59,7 @@ class Productdetails extends Component {
     } else {
       if (!inStock) return;
       this.setState({ isThereAttributes: false });
-      addProductToCart(id, attributes);
+      addProductToCart(id, attributes, uuid());
       this.setState({ attributes: [], checker: new Set() });
     }
   };

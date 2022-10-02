@@ -33,7 +33,7 @@ class ProductItem extends Component {
       };
    });
 
-      addProductToCart(id, selectedAttributes);
+      addProductToCart(id, selectedAttributes,  uuid() );
     }
 //       addProductToCart(id);}
 //       else{

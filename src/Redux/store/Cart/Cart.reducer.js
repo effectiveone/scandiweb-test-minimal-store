@@ -1,3 +1,5 @@
+import uuid from 'react-uuid';
+
 import cache from '../../..';
 import {
   ADD_TO_CART,
@@ -37,9 +39,14 @@ const cartReducer = (state = initialState, action) => {
               mt++;
             } else {
               mt = 0;
+             
             }
           }
         }
+
+
+      
+        
         if (mt === attributeChecker.size) {
           return {
             ...state,
@@ -51,22 +58,34 @@ const cartReducer = (state = initialState, action) => {
                 return {
                   ...product,
                   quantity: product.quantity + 1,
+                  
                 };
               }),
             ],
           };
         }
+
+
+
+
+
       }
+
+
+      
       return {
         ...state,
         cart: [
           ...state.cart,
           {
+            
             ...productData,
             attributes: productData.attributes,
             quantity: 1,
             selectedAttributes: action.attributes,
-            cartId: num++,
+            cartId: action.cartID,
+
+           
           },
         ],
       };

@@ -6,10 +6,11 @@ import {
     REMOVE_FROM_CART
   } from "./Cart.type.js";
   
-export const addProductToCart = (id, attributes = []) => ({
+export const addProductToCart = (id, attributes = [], cartID) => ({
     type: ADD_TO_CART,
     id,
     attributes,
+    cartID
   });
 
   export const changeAttributes = (id, payload, cartId) => ({
